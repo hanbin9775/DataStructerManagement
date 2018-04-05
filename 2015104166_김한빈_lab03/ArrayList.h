@@ -7,8 +7,20 @@
 using namespace std;
 
 #include "ConferenceType.h"
+#include "Application.h"
 
 #define MAXSIZE 5
+
+/**
+*	Linked Sorted List를 위한 Node Structure
+*/
+template <typename T>
+struct NodeType
+{
+	T data;				/// 노드에 들어가있는 데이터
+	NodeType* next;		/// 다음 노드를 가리키는 포인터 변수
+};
+
 
 /**
 *	배열 기반 간단한 sorted 리스트
@@ -42,7 +54,7 @@ public:
 	*	@post	none.
 	*	@return	현재 리스트의 길이 반환
 	*/
-	int GetLength();
+	int GetLength() const;
 
 	/**
 	*	@brief	리스트 꽉 찼는지 확인
@@ -65,10 +77,10 @@ public:
 	*	@brief	리스트에 새로운 데이터 추가
 	*	@pre	리스트가 설정되어있어야함 
 	*	@post	리스트에 새로운 레코드 추가
-	*	@param	data	새로운 데이터
+	*	@param	item	새로운 데이터
 	*	@return	잘 작동하면 1, 아니면 0 반환 
 	*/
-	int Add(T data);
+	int Add(T item);
 
 	/**
 	*	@brief	리스트 iterator를 초기화
@@ -81,55 +93,55 @@ public:
 	*	@brief	리스트 iterator를 다음 아이템으로 옮기고 그 아이템을 가져온다
 	*	@pre	리스트와 리스트 iterator는 초기화되지 않아야 한다.
 	*	@post	iterator가 다음 아이템으로 옮겨감.
-	*	@param	data	현재 iterator의 아이템을 가져옴. 초기화 될 필요는 없음.
+	*	@param	item	현재 iterator의 아이템을 가져옴. 초기화 될 필요는 없음.
 	*	@return	리스트의 끝이 아니라면 iterator의 아이템의 현재 위치 반환
 	*/
-	int GetNextItem(T& data);
+	void GetNextItem(T& item);
 
 	/**
 	*	@brief	primary key를 기준으로 데이터를 검색하고 해당 데이터를 가져옴
 	*	@pre	없음 
 	*	@post	없음
-	*	@param	data	primary key에 해당하는 아이템 가져옴    
+	*	@param	item	primary key에 해당하는 아이템 가져옴    
 	*	@return	해당하는 아이템을 반환하면 1 아니면 0 반환 
 	*/
-	int Get(T& data);
+	int Get(T& item);
 
 	/**
 	*	@brief	기존 레코드 삭제
 	*	@pre	none
 	*	@post	none
-	*	@param	data	삭제될 ItemType
+	*	@param	item	삭제될 ItemType
 	*	@return	성공하면 1 반환 실패 시 0 반환
 	*/
-	int Delete(T data);
+	int Delete(T item);
 	
 	/**
 	*	@brief	기존 레코드 갱신
 	*	@pre	none
 	*	@post	none
-	*	@param	data	갱신될 ItemType
+	*	@param	item	갱신될 ItemType
 	*	@return 성공하면 1 반환 실패 시 0 반환 
 	*/
-	int Replace(T data);
+	int Replace(T item);
 
 	/**
 	*	@brief	primary key(이름)를 기준으로 데이터를 이분법으로 검색하고 해당 데이터를 가져옴
 	*	@pre	없음
 	*	@post	없음
-	*	@param	data	primary key에 해당하는 아이템 가져옴
+	*	@param	item	primary key에 해당하는 아이템 가져옴
 	*	@return 성공하면 1 아니면 0 반환
 	*/
-	int GetByBinarySearch(T& data);
+	int GetByBinarySearch(T& item);
 	
 	/**
 	*	@brief	primary key(이름)를 기준으로 데이터를 검색하고 해당 데이터를 가져옴
 	*	@pre	없음
 	*	@post	없음
-	*	@param	data	primary key에 해당하는 아이템 가져옴
+	*	@param	item	primary key에 해당하는 아이템 가져옴
 	*	@return 성공하면 1 아니면 0 반환
 	*/
-	int GetByName(T data);
+	int GetByName(T item);
 	
 	/**
 	*	@brief	해당하는 리스트 index의 아이템 반환
@@ -141,38 +153,46 @@ public:
 	T GetItem(int num);
 
 private:
-	T *m_Array;  ///< 리스트 배열
+	NodeType<T>* m_pList;					///< Linked List를 가리키기 위한 포인터
 	int m_Length;				///< 리스트에 있는 원소 개수
-	int m_CurPointer;			///< iterator 포인터
+	NodeType<T>* m_CurPointer;			///< 현재 위치 가리키는 포인터
 };
 
 //생성자
 template <typename T>
 ArrayList<T>::ArrayList()
 {
-	m_Array = new T[MAXSIZE];
-	m_Length = 0;
-	ResetList();
+	m_nLength = 0;
+	m_pList = NULL;
+	m_pCurPointer = NULL:
 }
 
 //소멸자
 template <typename T>
 ArrayList<T>::~ArrayList()
 {
-	delete[] m_Array;
+	MakeEmpty();
 }
 
 // 리스트 비우기
 template <typename T>
 void ArrayList<T>::MakeEmpty()
 {
-	m_Length = 0;
+	NodeType<T>* tempPtr;
+
+	while (m_pList != NULL)
+	{
+		tempPtr = m_pList;
+		m_pList = m_pList->next;
+		delete tempPtr;
+	}
+	m_nLength = 0;
 }
 
 
 // 현재 리스트에 있는 레코드 개수 가져오기
 template <typename T>
-int ArrayList<T>::GetLength()
+int ArrayList<T>::GetLength() const
 {
 	return m_Length;
 }
@@ -200,136 +220,220 @@ bool ArrayList<T>::IsEmpty()
 
 // 사전순으로 정렬 리스트에 새로운 데이터 추가
 template <typename T>
-int ArrayList<T>::Add(T inData)
+int ArrayList<T>::Add(T item)
 {
-	if (!IsFull())
+	ResetList(); // 리스트 초기화 
+
+	NodeType<T> *node = new NodeType<T>;
+	NodeType<T> *pre;
+	T dummy;
+	bool bFound = false;
+
+	// node 객체에 입력받은 데이터 설정 및 초기화
+	node->data = data;
+	node->next = NULL;
+
+	// list 에 node 가 존재하지 않는 경우
+	if (!m_nLength)
 	{
-		for (int i = 0; i<m_Length; i++) {
-			if (m_Array[i].CompareByName(inData) == EQUAL) {
-				cout << "primary key는 중복될 수 없습니다";
-				return 0;
-			}
-			if (m_Array[i].CompareByName(inData) == GREATER) {			// indata가 사전 순으로 더 앞에 있을 때
-				for (int j = i; j < m_Length; j++) {
-					m_Array[m_Length - j + i] = m_Array[m_Length - j + i - 1];	// 기존 데이터들을 한칸씩 뒤로 미룬다
-				}
-				m_Array[i] = inData;
-				m_Length++;
-				return 1;
-			}
-		}
-		m_Array[m_Length] = inData;		// indata가 사전 순으로 기존 리스트에서 제일 뒤 일때
-		m_Length++;
-		return 1;
+		m_pList = node;
 	}
+	// list 에 node 가 하나 이상 존재하는 경우
 	else
 	{
-		cout << "\n\t	리스트 꽉 참!" << endl;
-		return 0;
+		// 가장 마지막 node 로 이동 후 삽입
+		while (1)
+		{
+			// 이전 노드를 가리키는 포인터 갱신
+			pre = m_pCurPointer;
 
+			// iteration 을 이용해 node 포인터 갱신.
+			GetNextItem(dummy);
+
+			if (m_pCurPointer->item>node->data)
+			{
+				if (pre == NULL)
+				{
+					node->next = m_pCurPointer;
+					m_pList = node;
+					break;
+				}	//넣을 자리 앞 원소가 존재하지 않을 때 첫번째 원소로 삽입.
+				node->next = m_pCurPointer;
+				pre->next = node;
+				break;
+			}	//지금 가리키는 원소의 item값이 node의 item값보다 클 경우 pre 뒷자리에 삽입.
+
+				// node 포인터가 마지막 node 를 가리키면 그 뒤에 새로운 node 삽입.
+			if (m_pCurPointer->next == NULL)
+			{
+				// 마지막 node 와 새로운 node 연결
+				m_pCurPointer->next = node;
+				break;
+			}
+		}
 	}
+
+	m_nLength++;
+
+	return 1;
 }
 
 // 리스트 iterartor 초기화
 template <typename T>
 void ArrayList<T>::ResetList()
 {
-	m_CurPointer = -1;
+	// current pointer 초기화
+	m_pCurPointer = NULL;
 }
 
 
 // 리스트 iterator를 다음 아이템으로 옮기고 그 아이템을 가져온다
 template <typename T>
-int ArrayList<T>::GetNextItem(T& data)
+void ArrayList<T>::GetNextItem(T& item)
 {
-	m_CurPointer++;	// list pointer 증가
-	if (m_CurPointer == MAXSIZE)	// end of list이면 -1을 리턴
-		return -1;
-	data = m_Array[m_CurPointer];	// 현재 list pointer의 레코드를 복사
+	// current pointer 이 NULL이라면 처음 node를 가리킴.
+	if (m_pCurPointer == NULL)
+	{
+		m_pCurPointer = m_pList;
+	}
+	else
+		//current position 을 다음 노드로 이동
+		m_pCurPointer = m_pCurPointer->next;
 
-	return m_CurPointer;
+	//item 에 current position 의 info 를 삽입
+	item = m_pCurPointer->data;
 }
 
-// 매개변수인 data의 primary key 정보로 리스트에 있는 레코드들과 비교 후 일치한다면 그 레코드 data에 저장.
+// 매개변수인 item의 primary key 정보로 리스트에 있는 레코드들과 비교 후 일치한다면 그 레코드 item에 저장.
 template <typename T>
-int ArrayList<T>::Get(T& data) {
-	if (m_Length == 0) { // 리스트 비어있음 -1 리턴
-		cout << "list 비어있음" << endl;
-		return 0;
+int ArrayList<T>::Get(T& item) {
+	bool moreToSearch, found;
+	NodeType<T>* location;	//변수 선언
+
+	location = m_pList;
+	found = false;
+	moreToSearch = (location != NULL);	//변수 초기화
+
+	while (moreToSearch && !found)	//리스트의 끝이 아니면서 아직 찾지 않았으면 반복한다.
+	{
+		if (item == location->data)
+		{
+			found = true;
+			item = location->data;
+		}	//일치하는 항목을 찾았을 때 found의 값을 변경해주고 item에 해당 항목을 복사해준다.
+		else
+		{
+			location = location->next;
+			moreToSearch = (location != NULL);
+		}	//찾지 못했을 때 다음 항목으로 location을 옮기고 그 값이 NULL이면 리스트의 끝이므로 moreToSearch의 값을 변경해준다.
 	}
 
-	for (int i = 0; i < m_Length; i++) {
-		if (m_Array[i].CompareByName(data) == EQUAL) {
-			data = m_Array[i]; // data에 해당 레코드 복사
-			return 1; // 성공
-		}
-	}
-	cout << "해당 레코드 없음" << endl; // 존재 하지 않으면 0 반환
-	return 0;
+	if (found)
+		return 1;
+	else
+		return 0;	//찾으면 1, 그렇지 못하면 0을 리턴한다.
+
 }
 
-// 매개변수인 data의 primary key 정보로 리스트에 있는 레코드들과 비교 후 일치한다면 그 레코드 삭제
+// 매개변수인 item의 primary key 정보로 리스트에 있는 레코드들과 비교 후 일치한다면 그 레코드 삭제
 template <typename T>
-int ArrayList<T>::Delete(T data) {
-	for (int i = 0; i < m_Length; i++) {
-		if (m_Array[i].CompareByName(data) == EQUAL) {
+int ArrayList<T>::Delete(T item) {
+	bool moreToSearch, found;
+	NodeType<T>* pre = NULL;	//변수 선언
 
-			// 삭제를 위한 레코드 이동 진행하는 반복문
-			for (int j = i; j < m_Length; j++) {
-				m_Array[j] = m_Array[j + 1];
-			}
-			m_Length--;
+	m_pCurPointer = m_pList;
+	found = false;
+	moreToSearch = (m_pCurPointer != NULL);	//변수 초기화
 
-			return 1;
+	while (moreToSearch && !found)	//리스트의 끝이 아니면서 아직 찾지 않았으면 반복한다.
+	{
+		if (item == m_pCurPointer->data)	//현재 가리키는 원소의 값과 item의 값이 일치할 때
+		{
+			found = true;	//찾았으므로 found 값 변경
+			if (pre == NULL)
+				m_pList = m_pCurPointer->next;	//항목 이전에 다른 원소가 없을 때 항목의 다음 원소를 첫번째 원소로 한다.
+			else
+			{
+				pre->next = m_pCurPointer->next;
+				delete m_pCurPointer;
+			}	//이전의 원소의 다음 원소를 '가리키는 항목의 다음 원소'로 바꾼다.
+			m_nLength--;	//리스트의 길이를 1 줄여준다.
 		}
+		else
+		{
+			pre = m_pCurPointer;
+			m_pCurPointer = m_pCurPointer->next;
+			moreToSearch = (m_pCurPointer != NULL);
+		}	//일치하지 않을 때 다음 원소를 가리킨다. 단, pre는 지금의 원소를 가리킨다.
 	}
-	cout << "해당하는 레코드 없음" << endl;
-	return 0;
+
+	if (found)
+		return 1;
+	else
+		return 0;	//삭제가 성공하면 1, 아니면 0을 리턴한다.
 }
 
-// 매개변수인 data의 primary key 정보로 리스트에 있는 레코드들과 비교 후 일치한다면 그 레코드 값들 data의 값으로 갱신
+// 매개변수인 item의 primary key 정보로 리스트에 있는 레코드들과 비교 후 일치한다면 그 레코드 값들 item의 값으로 갱신
 template <typename T>
-int ArrayList<T>::Replace(T data) {
-	for (int i = 0; i < MAXSIZE; i++) {
-		if (m_Array[i].CompareByName(data)) {
-			m_Array[i] = data;
-			return 1;
-		}
+int ArrayList<T>::Replace(T item) {
+	bool moreToSearch, found;
+	NodeType<T>* location;	//변수 선언
+
+	location = m_pList;
+	found = false;
+	moreToSearch = (location != NULL);	//변수 초기화
+
+	while (moreToSearch && !found)	//리스트의 끝이 아니면서 아직 찾지 않았으면 반복한다.
+	{
+		if (item == location->data)
+		{
+			found = true;
+			location->data = item;
+		}	//일치하는 항목을 찾았을 때 found의 값을 변경해주고 리스트의 항목에 item을 복사해준다.
+		else
+		{
+			location = location->next;
+			moreToSearch = (location != NULL);
+		}	//찾지 못했을 때 다음 항목으로 location을 옮기고 그 값이 NULL이면 리스트의 끝이므로 moreToSearch의 값을 변경해준다.
 	}
-	cout << "해당하는 레코드 없음" << endl;
-	return 0;
+
+	if (found)
+		return 1;
+	else
+		return 0;	//수정에 성공하면 1, 그렇지 못하면 0을 리턴한다.
+
 }
 
 // primary key(이름)를 기준으로 데이터를 이분법으로 검색하고 해당 데이터를 가져옴
 template <typename T>
-int ArrayList<T>::GetByBinarySearch(T& data) {
+int ArrayList<T>::GetByBinarySearch(T& item) {
 	int first = 0;
 	int last = m_Length - 1;
 	int mid = (first + last) / 2;
-	while (m_Array[mid].CompareByName(data) != EQUAL) {					// 찾을 때까지 진행	
+	while (m_Array[mid].CompareByName(item) != EQUAL) {					// 찾을 때까지 진행	
 
-		if ((first == last) && (m_Array[mid].CompareByName(data) != EQUAL)) {	// 해당 데이터 리스트에 없을 시
+		if ((first == last) && (m_Array[mid].CompareByName(item) != EQUAL)) {	// 해당 데이터 리스트에 없을 시
 			cout << "\t해당 이름 없음\n";
 			return 0;
 		}
 
-		if (m_Array[mid].CompareByName(data) == LESS) {					// 사전 순으로 해당 데이터가 뒤에 있다면
+		if (m_Array[mid].CompareByName(item) == LESS) {					// 사전 순으로 해당 데이터가 뒤에 있다면
 			first = mid + 1;
 			mid = (first + last) / 2;
 		}
-		else if (m_Array[mid].CompareByName(data) == GREATER) {			// 사전 순으로 해당 데이터가 앞에 있다면
+		else if (m_Array[mid].CompareByName(item) == GREATER) {			// 사전 순으로 해당 데이터가 앞에 있다면
 			last = mid;
 			mid = (first + last) / 2;
 		}
 
 	}
-	data = m_Array[mid];
+	item = m_Array[mid];
 	return 1;
 }
 
 // primary key(이름)를 기준으로 데이터를 검색하고 해당 데이터를 가져옴. primary key가 포함된 학술대회 정보들 모두 가져옴
 template <typename T>
-int ArrayList<T>::GetByName(T data) {
+int ArrayList<T>::GetByName(T item) {
 	if (m_Length == 0) { // 리스트 비어있음 0 리턴
 		cout << "list 비어있음" << endl;
 		return 0;
@@ -337,14 +441,14 @@ int ArrayList<T>::GetByName(T data) {
 
 	string str;
 	T tmp;
-	tmp = data;
+	tmp = item;
 
 
 	for (int i = 0; i < m_Length + 1; i++) {	
 		str = m_Array[i].GetName();
 		if (-1 != str.find(tmp.GetName())) { // 레코드들의 이름에 primary key가 해당하는지 확인
-			data = m_Array[i]; // data에 해당 레코드 복사
-			data.DisplayRecordOnScreen(); // 해당 레코드 출력
+			item = m_Array[i]; // item에 해당 레코드 복사
+			item.DisplayRecordOnScreen(); // 해당 레코드 출력
 		}
 
 	}

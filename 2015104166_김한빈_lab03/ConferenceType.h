@@ -5,6 +5,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "ArrayList.h"
+#include "sessionType.h"
 
 using namespace std;
 
@@ -295,6 +297,10 @@ protected:
 	string m_sDate;		///< 시작 년월일 ex)2018.03.19
 	string m_sOrg;		///< 개최 기관
 	string m_sAbrv;		///< 대회명 이니셜
+	string m_sPlace;	///< 개최 장소
+	string m_OpenDate;  ///< 개최 일시
+	string m_sISBN;		///< isbn
+	//ArrayList<sessionType> sessionList; /// 
 };
 
 #endif	// _ConferenceType_H

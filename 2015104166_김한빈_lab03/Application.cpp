@@ -22,16 +22,16 @@ void Application::Run()
 		case 4:		// 학술대회를 학술대회 이름으로 검색하여 화면 출력
 			RetrieveByName();
 			break;
-		case 5:		// 학술대회 요약정보를 화면에 출력하고, 특정 학술대회 번호를 입력받아 제사한 정보 출력
-			GetConferenceInfo();
+		case 5:		// 모든 학술대회의 논문 중에서 키워드가 포함된 논문출력
+			RetrievePaperByName();
 			break;
-		case 6:		// 모든 학술대회의 요약된 정보를 화면 출력
+		case 7:		// 모든 학술대회의 요약된 정보를 화면 출력
 			DisplayAllConferences();
 			break;
-		case 7:		// 파일에서 리스트 데이터 읽어오기
+		case 8:		// 파일에서 리스트 데이터 읽어오기
 			ReadDataFromFile();
 			break;
-		case 8:		// 리스트 데이터 파일에 저장하기
+		case 9:		// 리스트 데이터 파일에 저장하기
 			WriteDataToFile();
 			break;
 		case 0:     // 프로그램 종료
@@ -97,20 +97,15 @@ void Application::DisplayAllConferences()
 {
 	ConferenceType data;
 
-	cout << "\n\tCurrent list" << endl << endl;
+	cout << "\n\tCurrent list" << endl;
 
-	// list의 모든 데이터를 화면에 출력
-	m_List.ResetList();
-	int length = m_List.GetLength();
-	int curIndex = m_List.GetNextItem(data);
-	while(curIndex < length && curIndex != -1)
+	m_List.ResetList();	// 리스트 초기화
+						// list의 모든 데이터를 화면에 출력
+	for (int i = 0; i < m_List.GetLength(); i++)
 	{
-		data.DisplayNameOnScreen();
-		data.DisplayNumOnScreen();
-		data.DisplayDateOnScreen();
-		data.DisplayOrganizationOnScreen();
-		cout << endl;
-		curIndex = m_List.GetNextItem(data);
+		m_List.GetNextItem(data);
+		data.DisplayRecordOnScreen();
+		cout << "\n\t\t|\n\n";
 	}
 }
 
@@ -172,25 +167,27 @@ int Application::ReadDataFromFile()
 int Application::WriteDataToFile()
 {
 	ConferenceType data;	// 쓰기용 임시 변수
-
 	char filename[FILENAMESIZE];
 	cout << "\n\tEnter Output file Name : ";
 	cin >> filename;
 
 	// file open, open error가 발생하면 0을 리턴
-	if(!OpenOutFile(filename))
+	if (!OpenOutFile(filename))
 		return 0;
 
 	// list 포인터를 초기화
 	m_List.ResetList();
 
-	// list의 모든 데이터를 파일에 쓰기
+	// list의 길이를 리턴받아 저장
 	int length = m_List.GetLength();
-	int curIndex = m_List.GetNextItem(data);
-	while(curIndex < length && curIndex != -1)
+
+	// iteration을 이용하여 모든 item 출력
+	for (int i = 0; i<length; i++)
 	{
+		m_List.GetNextItem(data);
 		data.WriteDataToFile(m_OutFile);
-		curIndex = m_List.GetNextItem(data);
+		if (i != length - 1)
+			m_OutFile << endl;
 	}
 
 	m_OutFile.close();	// file close
@@ -267,18 +264,26 @@ void Application::GetConferenceInfo() {
 	// 학술대회 요약정보 화면에 출력
 	m_List.ResetList();
 	int length = m_List.GetLength();
-	int curIndex = m_List.GetNextItem(data);
-	while (curIndex < length && curIndex != -1)
+
+	for (int i = 0; i < m_List.GetLength(); i++)
 	{
-		cout << curIndex+1 << ": ";
+		m_List.GetNextItem(data);
+		cout << i + 1 << " : ";
 		data.DisplayAbbrevationOnScreen();
-		cout << endl;
-		curIndex = m_List.GetNextItem(data);
 	}
+
 	int num;
 	cout << "\t검색할 index 입력 : ";
 	cin >> num;
-	ConferenceType display = m_List.GetItem(num-1);
+	m_List.ResetList();
+	ConferenceType display;
+	for (int i = 0; i < num; i++) {
+		m_List.GetNextItem(display);
+	}
 	cout << "\n\t<<검색결과>>\n";
 	cout <<num<<" : "<< display.GetAbrv() << " : " << display.GetName() << endl;
 }
+/*
+int RetrievePaperByName() {
+
+}*/

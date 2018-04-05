@@ -128,6 +128,14 @@ public:
 	*/
 	int RetrieveByName();
 
+	/**
+	*	@brief	모든 학술대회의 논문 중에서 키워드가 포함된 논문 출력
+	*	@pre	리스트가 비어있으면 안됨
+	*	@post	논문 제목, 제자, 페이지 수 출력 
+	*	@return	잘 작동하면 1 아니면 0 반환
+	*/
+	int RetrievePaperByName();
+
 private:
 	ifstream m_InFile;		///< 입력 파일 디스크립터
 	ofstream m_OutFile;		///< 출력 파일 디스크립터
