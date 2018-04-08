@@ -1,13 +1,11 @@
-
 #ifndef _CONFERENCETYPE_H
 #define _CONFERENCETYPE_H
 
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "ArrayList.h"
 #include "sessionType.h"
-
+#include "ArrayList.h"
 using namespace std;
 
 
@@ -34,6 +32,7 @@ public:
 		m_sDate = "";
 		m_Num = -1;
 		m_sOrg = "";
+		m_sAbrv = "";
 	}
 
 	/**
@@ -97,6 +96,39 @@ public:
 	}
 
 	/**
+	*	@brief	개최 장소 명 약자 가져오기
+	*	@pre	개최 장소 값이 설정되어있어야함
+	*	@post	none.
+	*	@return	개최 장소 
+	*/
+	string GetPlace()
+	{
+		return m_sPlace;
+	}
+
+	/**
+	*	@brief	개최 일시 값 가져오기
+	*	@pre	개최 일시 값이 설정되어있어야함.
+	*	@post	none.
+	*	@return	개최 일시
+	*/
+	string GetOpenDate()
+	{
+		return m_OpenDate;
+	}
+
+	/**
+	*	@brief	ISBN 가져오기
+	*	@pre	ISBN 값이 설정되어있어야함
+	*	@post	none.
+	*	@return	ISBN 값
+	*/
+	string GetISBN()
+	{
+		return m_sISBN;
+	}
+
+	/**
 	*	@brief	학술대회 이름 값 저장하기
 	*	@pre	none.
 	*	@post	학술대회 이름에 값이 저장됨
@@ -140,7 +172,51 @@ public:
 	{
 		m_sOrg = inOrg;
 	}
+
+	/**
+	*	@brief	학술대회 명 약자 설정하기.
+	*	@pre	none.
+	*	@post	학술대회 명 약자 값이 저장됨
+	*	@param	inAbrv	설정할 학술 대회명 약자
+	*/
+	void SetAbbrevation(string inAbrv)
+	{
+		m_sAbrv = inAbrv;
+	}
+
+	/**
+	*	@brief	학술대회 개최 장소 설정하기.
+	*	@pre	none.
+	*	@post	학술대회 개최 장소 값이 저장됨
+	*	@param	inPlace	설정할 장소 대회명 약자
+	*/
+	void SetPlace(string inPlace)
+	{
+		m_sPlace = inPlace;
+	}
 	
+	/**
+	*	@brief	학술대회 개최 일시 설정하기.
+	*	@pre	none.
+	*	@post	학술대회 개최 일시 값이 저장됨
+	*	@param	inOpenDate	설정할 개최 장소 
+	*/
+	void SetOpenDate(string inOpenDate)
+	{
+		m_OpenDate = inOpenDate;
+	}
+
+	/**
+	*	@brief	ISBN 값 설정하기
+	*	@pre	none.
+	*	@post	ISBN 값이 저장됨
+	*	@param	inISBN	설정할 ISBN
+	*/
+	void SetISBN(string inISBN)
+	{
+		m_sISBN = inISBN;
+	}
+
 	/**
 	*	@brief	학술 레코드 설정
 	*	@pre	없음
@@ -149,13 +225,21 @@ public:
 	*	@param	inDate	시작년월일
 	*	@param	inNum	개최 횟수
 	*	@param	inOrg	개최 기관
+	*	@param	inAbrv	학술대회명약자
+	*	@param	inPlace 학술대회 개최 장소
+	*	@param	inOpenDate	개최 일시
+	*	@param	inISBN	ISBN
 	*/
-	void SetRecord(string inname, string indate,int innum ,string inorg)
+	void SetRecord(string inname, string indate,int innum ,string inorg,string inabrv, string inplace, string inopendate, string inisbn)
 	{
 		SetName(inname);
 		SetDate(indate);
 		SetNum(innum);
 		SetOrganization(inorg);
+		SetAbbrevation(inabrv);
+		SetPlace(inplace);
+		SetOpenDate(inopendate);
+		SetISBN(inisbn);
 	}
 
 	/**
@@ -291,6 +375,38 @@ public:
 	*/
 	RelationType CompareByName(const ConferenceType &data);
 
+	/**
+	*	@brief	Compare two item types by item id.
+	*	@pre	two item types should be initialized.
+	*	@param	data	target item for comparing.
+	*	@return	return 1 if this.id > data.id, 0 if not.
+	*/
+	bool operator>(ConferenceType item);
+
+	/**
+	*	@brief	Compare two item types by item id.
+	*	@pre	two item types should be initialized.
+	*	@param	data	target item for comparing.
+	*	@return	return 1 if this.id == data.id, 0 if not.
+	*/
+	bool operator==(ConferenceType item);
+
+	/**
+	*	@brief	Compare two item types by item id.
+	*	@pre	two item types should be initialized.
+	*	@param	data	target item for comparing.
+	*	@return	return 1 if this.id == data.id, 0 if not.
+	*/
+	string operator+();
+
+	/**
+	*	@brief	Compare two item types by item id.
+	*	@pre	two item types should be initialized.
+	*	@param	data	target item for comparing.
+	*	@return	return 1 if this.id == data.id, 0 if not.
+	*/
+	void operator-();
+
 protected:
 	string m_sName;		///< 학술대회 명
 	int m_Num;			///< 개최 횟수
@@ -300,7 +416,7 @@ protected:
 	string m_sPlace;	///< 개최 장소
 	string m_OpenDate;  ///< 개최 일시
 	string m_sISBN;		///< isbn
-	//ArrayList<sessionType> sessionList; /// 
+	ArrayList<sessionType> sessionList; /// 
 };
 
-#endif	// _ConferenceType_H
+#endif	// _CONFERENCETYPE_H

@@ -7,6 +7,7 @@
 using namespace std;
 
 #include "ArrayList.h"
+#include "ConferenceType.h"
 
 #define FILENAMESIZE 1024
 
@@ -134,12 +135,12 @@ public:
 	*	@post	논문 제목, 제자, 페이지 수 출력 
 	*	@return	잘 작동하면 1 아니면 0 반환
 	*/
-	int RetrievePaperByName();
+	//int RetrievePaperByName();
 
 private:
 	ifstream m_InFile;		///< 입력 파일 디스크립터
 	ofstream m_OutFile;		///< 출력 파일 디스크립터
-	ArrayList<ConferenceType> m_List;		///< 아이템 리스트
+	ArrayList<ConferenceType> m_List;	///< ArrayList 형 m_list
 	int m_Command;			///< 현재 커맨드 숫자
 };
 

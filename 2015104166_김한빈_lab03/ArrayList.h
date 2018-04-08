@@ -6,10 +6,6 @@
 #include <string>
 using namespace std;
 
-#include "ConferenceType.h"
-#include "Application.h"
-
-#define MAXSIZE 5
 
 /**
 *	Linked Sorted List를 위한 Node Structure
@@ -56,13 +52,6 @@ public:
 	*/
 	int GetLength() const;
 
-	/**
-	*	@brief	리스트 꽉 찼는지 확인
-	*	@pre	none.
-	*	@post	none.
-	*	@return	꽉 찼으면 true 아니면 false
-	*/
-	bool IsFull();
 
 	/**
 	*	@brief	리스트가 비워져 있는지 확인
@@ -126,36 +115,18 @@ public:
 	int Replace(T item);
 
 	/**
-	*	@brief	primary key(이름)를 기준으로 데이터를 이분법으로 검색하고 해당 데이터를 가져옴
-	*	@pre	없음
-	*	@post	없음
-	*	@param	item	primary key에 해당하는 아이템 가져옴
-	*	@return 성공하면 1 아니면 0 반환
-	*/
-	int GetByBinarySearch(T& item);
-	
-	/**
 	*	@brief	primary key(이름)를 기준으로 데이터를 검색하고 해당 데이터를 가져옴
 	*	@pre	없음
 	*	@post	없음
-	*	@param	item	primary key에 해당하는 아이템 가져옴
+	*	@param	data	primary key에 해당하는 아이템 가져옴
 	*	@return 성공하면 1 아니면 0 반환
 	*/
-	int GetByName(T item);
-	
-	/**
-	*	@brief	해당하는 리스트 index의 아이템 반환
-	*	@pre	none
-	*	@post	none
-	*	@param	num		반환할 아이템의 index
-	*	@return 해당 index의 아이템
-	*/
-	T GetItem(int num);
+	int GetByPrimaryKey(T item);
 
 private:
 	NodeType<T>* m_pList;					///< Linked List를 가리키기 위한 포인터
-	int m_Length;				///< 리스트에 있는 원소 개수
-	NodeType<T>* m_CurPointer;			///< 현재 위치 가리키는 포인터
+	int m_nLength;				///< 리스트에 있는 원소 개수
+	NodeType<T>* m_pCurPointer;			///< 현재 위치 가리키는 포인터
 };
 
 //생성자
@@ -164,7 +135,7 @@ ArrayList<T>::ArrayList()
 {
 	m_nLength = 0;
 	m_pList = NULL;
-	m_pCurPointer = NULL:
+	m_pCurPointer = NULL;
 }
 
 //소멸자
@@ -194,25 +165,15 @@ void ArrayList<T>::MakeEmpty()
 template <typename T>
 int ArrayList<T>::GetLength() const
 {
-	return m_Length;
+	return m_nLength;
 }
 
-
-// 리스트 꽉 찼는지 확인
-template <typename T>
-bool ArrayList<T>::IsFull()
-{
-	if (m_Length > MAXSIZE - 1)
-		return true;
-	else
-		return false;
-}
 
 // 리스트 비워져있는지 확인
 template <typename T>
 bool ArrayList<T>::IsEmpty()
 {
-	if (m_Length == 0)
+	if (m_nLength == 0)
 		return true;
 	else
 		return false;
@@ -230,7 +191,7 @@ int ArrayList<T>::Add(T item)
 	bool bFound = false;
 
 	// node 객체에 입력받은 데이터 설정 및 초기화
-	node->data = data;
+	node->data = item;
 	node->next = NULL;
 
 	// list 에 node 가 존재하지 않는 경우
@@ -250,7 +211,7 @@ int ArrayList<T>::Add(T item)
 			// iteration 을 이용해 node 포인터 갱신.
 			GetNextItem(dummy);
 
-			if (m_pCurPointer->item>node->data)
+			if (m_pCurPointer->data > node->data)
 			{
 				if (pre == NULL)
 				{
@@ -404,61 +365,50 @@ int ArrayList<T>::Replace(T item) {
 
 }
 
-// primary key(이름)를 기준으로 데이터를 이분법으로 검색하고 해당 데이터를 가져옴
-template <typename T>
-int ArrayList<T>::GetByBinarySearch(T& item) {
-	int first = 0;
-	int last = m_Length - 1;
-	int mid = (first + last) / 2;
-	while (m_Array[mid].CompareByName(item) != EQUAL) {					// 찾을 때까지 진행	
-
-		if ((first == last) && (m_Array[mid].CompareByName(item) != EQUAL)) {	// 해당 데이터 리스트에 없을 시
-			cout << "\t해당 이름 없음\n";
-			return 0;
-		}
-
-		if (m_Array[mid].CompareByName(item) == LESS) {					// 사전 순으로 해당 데이터가 뒤에 있다면
-			first = mid + 1;
-			mid = (first + last) / 2;
-		}
-		else if (m_Array[mid].CompareByName(item) == GREATER) {			// 사전 순으로 해당 데이터가 앞에 있다면
-			last = mid;
-			mid = (first + last) / 2;
-		}
-
-	}
-	item = m_Array[mid];
-	return 1;
-}
 
 // primary key(이름)를 기준으로 데이터를 검색하고 해당 데이터를 가져옴. primary key가 포함된 학술대회 정보들 모두 가져옴
 template <typename T>
-int ArrayList<T>::GetByName(T item) {
-	if (m_Length == 0) { // 리스트 비어있음 0 리턴
+int ArrayList<T>::GetByPrimaryKey(T item) {
+	if (m_nLength == 0) { // 리스트 비어있음 0 리턴
 		cout << "list 비어있음" << endl;
 		return 0;
 	}
 
 	string str;
 	T tmp;
+	T dummy;
 	tmp = item;
-
-
-	for (int i = 0; i < m_Length + 1; i++) {	
+	ResetList();
+	m_pCurPointer = m_pList;
+	
+	//cout <<(m_pCurPointer->data).operator+();
+	for (int i = 0; i < m_nLength;i++) {
+		str = (m_pCurPointer->data).operator+();	//operator+ == item.GetName()
+		if (-1 != str.find(tmp.operator+())) {
+			item = m_pCurPointer->data;
+			item.operator-();						//operator- == item.DisplayRecordOnScreen
+		}
+		if(i!=m_nLength-1) GetNextItem(dummy);
+	}
+	
+	/*
+	while (m_pCurPointer != NULL) {
+		str = (m_pCurPointer->data).operator+();	//operator+ == item.GetName()
+		if (-1 != str.find(tmp.operator+())){ 
+			item = m_pCurPointer->data; 
+			item.operator-();						//operator- == item.DisplayRecordOnScreen
+		}
+		GetNextItem(dummy); // 이렇게하면 안됨! 
+	}
+	return 1;
+	/*for (int i = 0; i < m_nLength + 1; i++) {	
 		str = m_Array[i].GetName();
 		if (-1 != str.find(tmp.GetName())) { // 레코드들의 이름에 primary key가 해당하는지 확인
 			item = m_Array[i]; // item에 해당 레코드 복사
 			item.DisplayRecordOnScreen(); // 해당 레코드 출력
 		}
 
-	}
-	return 1;
-}
-
-// 해당하는 리스트 index의 아이템 반환
-template <typename T>
-T ArrayList<T>::GetItem(int num) {
-	return m_Array[num];
+	}*/
 }
 
 

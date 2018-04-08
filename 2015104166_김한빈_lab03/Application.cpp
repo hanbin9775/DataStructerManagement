@@ -23,7 +23,7 @@ void Application::Run()
 			RetrieveByName();
 			break;
 		case 5:		// 모든 학술대회의 논문 중에서 키워드가 포함된 논문출력
-			RetrievePaperByName();
+			//RetrievePaperByName();
 			break;
 		case 7:		// 모든 학술대회의 요약된 정보를 화면 출력
 			DisplayAllConferences();
@@ -70,13 +70,7 @@ int Application::GetCommand()
 
 // 새로운 레코드를 리스트에 추가
 int Application::AddConference()
-{
-	// 입력받은 레코드를 리스트에 add, 리스트가 full일 경우는 add하지 않고 0을 리턴
-	if(m_List.IsFull())
-	{
-		cout << "List is full" << endl;
-		return 0;
-	}
+{ 
 
 	ConferenceType item;
 
@@ -247,12 +241,9 @@ int Application::RetrieveByName() {
 	cout << "\t검색하고 싶은 Name을 입력하세요" << endl;
 	item.SetNameFromKB();
 	
-	m_List.GetByName(item);
+	m_List.GetByPrimaryKey(item);
 	
 	return 1;
-	/*}
-	else
-		return 0;*/
 }
 
 // 학술대회 요약정보를 화면에 출력하고, 특정 학술대회 번호를 입력 받아 자세한 정보 출력

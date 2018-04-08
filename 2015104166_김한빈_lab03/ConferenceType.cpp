@@ -88,3 +88,26 @@ RelationType ConferenceType::CompareByName(const ConferenceType &data)
 	else
 		return EQUAL;
 }
+
+// Compare two item types by item id.
+bool ConferenceType::operator>(ConferenceType item)
+{
+	return (this->GetName()>item.GetName());
+}	//return 1 if this.id > data.id, 0 if not.
+
+	// Compare two item types by item id.
+bool ConferenceType::operator==(ConferenceType item)
+{
+	return (this->GetName() == item.GetName());
+}	//return 1 if this.id == data.id, 0 if not.
+
+string ConferenceType::operator+() 
+{
+	return this->GetName();
+}
+
+void ConferenceType::operator-() 
+{
+	this->DisplayRecordOnScreen();
+	return;
+}

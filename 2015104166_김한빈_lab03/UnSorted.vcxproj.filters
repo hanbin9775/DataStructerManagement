@@ -41,5 +41,8 @@
     <ClInclude Include="sessionType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="paperType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
