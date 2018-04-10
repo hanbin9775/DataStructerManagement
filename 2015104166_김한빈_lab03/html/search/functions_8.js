@@ -1,14 +1,16 @@
 var searchData=
 [
-  ['setabbrevationfromkb',['SetAbbrevationFromKB',['../class_conference_type.html#a686889a33ff1113a4dd8edbae8b25dde',1,'ConferenceType']]],
-  ['setdate',['SetDate',['../class_conference_type.html#a1cde1f018686995ac4d4651e62e46ca9',1,'ConferenceType']]],
-  ['setdatefromkb',['SetDateFromKB',['../class_conference_type.html#a112a6914bc6b851a7d3e495376ef8760',1,'ConferenceType']]],
-  ['setname',['SetName',['../class_conference_type.html#a8791db2eaba39d70341f1d541d2c8b4a',1,'ConferenceType']]],
-  ['setnamefromkb',['SetNameFromKB',['../class_conference_type.html#adc7af621b8086625d37c3fb52bb7a097',1,'ConferenceType']]],
-  ['setnum',['SetNum',['../class_conference_type.html#aad6c6842f6ae8f704404c43f83e8a9a5',1,'ConferenceType']]],
-  ['setnumfromkb',['SetNumFromKB',['../class_conference_type.html#a172d8ad59104e1de1dad0c47193e3b3c',1,'ConferenceType']]],
-  ['setorganization',['SetOrganization',['../class_conference_type.html#a3c942631ede9de0ab3e7fde6886fcfe2',1,'ConferenceType']]],
-  ['setorganizationfromkb',['SetOrganizationFromKB',['../class_conference_type.html#a772f9404f2275f20a2ab6e45364b438a',1,'ConferenceType']]],
-  ['setrecord',['SetRecord',['../class_conference_type.html#a50dc0bb1c628d003ecfb4acd4787acf9',1,'ConferenceType']]],
-  ['setrecordfromkb',['SetRecordFromKB',['../class_conference_type.html#a7ee049df3516de86283737f1daddfdbb',1,'ConferenceType']]]
+  ['readdatafromfile',['ReadDataFromFile',['../class_application.html#abfb951aeecc63a5e65ea2bbd4e83d96e',1,'Application::ReadDataFromFile()'],['../class_conference_type.html#ad431f24083735785bf63b050ecbeaad0',1,'ConferenceType::ReadDataFromFile()']]],
+  ['replace',['Replace',['../class_array_list.html#a69305c1f90016da35255df374ae7cef3',1,'ArrayList']]],
+  ['replaceconference',['ReplaceConference',['../class_application.html#a3a0756ab1a086a9dcf662d14ff8d70f5',1,'Application']]],
+  ['replacepaper',['ReplacePaper',['../class_application.html#af23cc30fcb73bc0fe770d6402c8346f4',1,'Application']]],
+  ['replacesession',['ReplaceSession',['../class_application.html#a3cd947a3f2fa9b578d572ff113bdb470',1,'Application']]],
+  ['resetlist',['ResetList',['../class_array_list.html#a164d97819e5be6e69d85276c70a8e625',1,'ArrayList']]],
+  ['retrievebyname',['RetrieveByName',['../class_application.html#a672100a2d11a4b3ed1cd125120faca2c',1,'Application']]],
+  ['retrievebypapername',['RetrieveByPaperName',['../class_application.html#a42ff287ca4e1cee154dff26236cb2a93',1,'Application']]],
+  ['retrievebysessionname',['RetrieveBySessionName',['../class_application.html#a78931ab0f6750f40430b476a6caa419f',1,'Application']]],
+  ['retrievepaperbyname',['RetrievePaperByName',['../class_application.html#af2f388b24f8f49aa9cc2ee44a849388e',1,'Application']]],
+  ['run',['Run',['../class_application.html#aaf09cd6cb412086dc039e28cdb059f0d',1,'Application']]],
+  ['runpaper',['RunPaper',['../class_application.html#a83c2d5e2e21091780253cd8370eaf9d1',1,'Application']]],
+  ['runsession',['RunSession',['../class_application.html#a6129d7fd6a610fb0c4ccdb5b39458904',1,'Application']]]
 ];

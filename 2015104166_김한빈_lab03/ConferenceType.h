@@ -302,6 +302,36 @@ public:
 	};
 
 	/**
+	*	@brief	학술대회 개최 장소 화면에 출력
+	*	@pre	학술대회 개최 장소 값이 설정되어있어야함
+	*	@post	학술대회 개최장소 화면에 출력
+	*/
+	void DisplayPlaceOnScreen()
+	{
+		cout << "\tPlace : " << m_sPlace << endl;
+	};
+
+	/**
+	*	@brief	학술대회 개최 일시 화면에 출력
+	*	@pre	학술대회 개최 일시 값이 설정되어있어야함
+	*	@post	학술대회 개최 일시 화면에 출력
+	*/
+	void DisplayOpenDateOnScreen()
+	{
+		cout << "\tOpen Date : " << m_OpenDate << endl;
+	};
+
+	/**
+	*	@brief	ISBN 화면에 출력
+	*	@pre	ISBN 값이 설정되어있어야함
+	*	@post	ISBN 화면에 출력
+	*/
+	void DisplayISBNOnScreen()
+	{
+		cout << "\tISBN : " << m_sISBN << endl;
+	};
+
+	/**
 	*	@brief	화면에 학술대회 레코드 출력하기
 	*	@pre	학술대회 레코드가 설정되어있어야함.
 	*	@post	학술대회 레코드가 화면에 출력
@@ -313,6 +343,9 @@ public:
 		DisplayNumOnScreen();
 		DisplayOrganizationOnScreen();
 		DisplayAbbrevationOnScreen();
+		DisplayPlaceOnScreen();
+		DisplayOpenDateOnScreen();
+		DisplayISBNOnScreen();
 	};
 
 	/**
@@ -349,6 +382,27 @@ public:
 	*	@post	학술 대회 명 약자 설정됨.
 	*/
 	void SetAbbrevationFromKB();
+
+	/**
+	*	@brief	학술 대회 개최 장소 키보드로 입력해서 값 설정
+	*	@pre	none.
+	*	@post	학술 대회 개최 장소 설정됨.
+	*/
+	void SetPlaceFromKB();
+
+	/**
+	*	@brief	학술 대회 개최 일시 키보드로 입력해서 값 설정
+	*	@pre	none.
+	*	@post	학술 대회 개최 일시 설정됨.
+	*/
+	void SetOpenDateFromKB();
+
+	/**
+	*	@brief	ISBN 키보드로 입력해서 값 설정
+	*	@pre	none.
+	*	@post	ISBN 약자 설정됨.
+	*/
+	void SetISBNFromKB();
 
 	/**
 	*	@brief	학술대회 레코드 키보드로 입력해서 값 설정

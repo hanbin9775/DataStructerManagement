@@ -39,6 +39,27 @@ void ConferenceType::SetAbbrevationFromKB()
 	cin >> m_sAbrv;
 }
 
+// 키보드로 개최 장소 설정
+void ConferenceType::SetPlaceFromKB()
+{
+	cout << "\tPlace : ";
+	cin >> m_sPlace;
+}
+
+// 키보드로 학술대회 개최 일시 설정
+void ConferenceType::SetOpenDateFromKB()
+{
+	cout << "\tOpen date : ";
+	cin >> m_OpenDate;
+}
+
+// 키보드로 ISBN 설정
+void ConferenceType::SetISBNFromKB()
+{
+	cout << "\tISBN : ";
+	cin >> m_sISBN;
+}
+
 // 키보드로 학술대회 기록 설정
 void ConferenceType::SetRecordFromKB()
 {
@@ -47,6 +68,9 @@ void ConferenceType::SetRecordFromKB()
 	SetNumFromKB();
 	SetOrganizationFromKB();
 	SetAbbrevationFromKB();
+	SetPlaceFromKB();
+	SetOpenDateFromKB();
+	SetISBNFromKB();
 }
 
 
@@ -58,7 +82,9 @@ int ConferenceType::ReadDataFromFile(ifstream& fin)
 	fin >> m_Num;
 	fin >> m_sOrg;
 	fin >> m_sAbrv;
-
+	fin >> m_sPlace;
+	fin >> m_OpenDate;
+	fin >> m_sISBN;
 	return 1;
 };
 
@@ -72,7 +98,9 @@ int ConferenceType::WriteDataToFile(ofstream& fout)
 	fout << m_Num << " ";
 	fout << m_sOrg << " ";
 	fout << m_sAbrv;
-
+	fout << m_sPlace;
+	fout << m_OpenDate;
+	fout << m_sISBN;
 	return 1;
 }
 
@@ -80,7 +108,6 @@ int ConferenceType::WriteDataToFile(ofstream& fout)
 // 두 아이템 타입 비교
 RelationType ConferenceType::CompareByName(const ConferenceType &data)
 {
-	
 	if(this->m_sName.compare(data.m_sName)==1)
 		return GREATER;
 	else if(this->m_sName.compare(data.m_sName)==-1)

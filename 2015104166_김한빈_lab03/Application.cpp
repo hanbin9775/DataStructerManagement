@@ -436,6 +436,9 @@ int Application::ReplaceConference() {
 	item.SetDateFromKB();
 	item.SetNumFromKB();
 	item.SetOrganizationFromKB();
+	item.SetPlaceFromKB();
+	item.SetOpenDateFromKB();
+	item.SetISBNFromKB();
 	m_List.Replace(item);
 	
 	cout << endl << "\t<<현재 리스트 현황>>" << endl;
