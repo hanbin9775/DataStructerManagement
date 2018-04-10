@@ -38,6 +38,11 @@ public:
 	~ArrayList();
 
 	/**
+	*	복사생성자 (deep copy)
+	*/
+	//ArrayList(const ArrayList<T>& copy);
+
+	/**
 	*	@brief	리스트 비우기
 	*	@pre	none.
 	*	@post	리스트가 비워짐
@@ -97,6 +102,15 @@ public:
 	int Get(T& item);
 
 	/**
+	*	@brief	primary key를 기준으로 데이터를 검색하고 해당 데이터의 주소값 반환 (참조용)
+	*	@pre	없음
+	*	@post	없음
+	*	@param	item	primary key에 해당하는 아이템 가져옴
+	*	@return	해당하는 클래스 타입형의 data 주소값 반환
+	*/
+	T* Get2(T item);
+
+	/**
 	*	@brief	기존 레코드 삭제
 	*	@pre	none
 	*	@post	none
@@ -123,6 +137,14 @@ public:
 	*/
 	int GetByPrimaryKey(T item);
 
+	/**
+	*	@brief	primary key(이름)를 기준으로 데이터를 검색하고 해당 데이터를 가져옴
+	*	@pre	없음
+	*	@post	없음
+	*	@param	data	primary key에 해당하는 아이템 가져옴
+	*	@return 성공하면 1 아니면 0 반환
+	*/
+
 private:
 	NodeType<T>* m_pList;					///< Linked List를 가리키기 위한 포인터
 	int m_nLength;				///< 리스트에 있는 원소 개수
@@ -135,6 +157,7 @@ ArrayList<T>::ArrayList()
 {
 	m_nLength = 0;
 	m_pList = NULL;
+	//m_pList->next = NULL;
 	m_pCurPointer = NULL;
 }
 
@@ -142,9 +165,31 @@ ArrayList<T>::ArrayList()
 template <typename T>
 ArrayList<T>::~ArrayList()
 {
-	MakeEmpty();
+//	MakeEmpty();
 }
-
+/*
+//복사생성자 (deep copy)
+template <typename T>
+ArrayList<T>::ArrayList(const ArrayList<T>& copy) {
+	NodeType<T>* ptr1;
+	NodeType<T>* ptr2;
+	if (copy.m_pCurPointer == NULL)
+		m_pCurPointer = NULL;
+	else {
+		ptr2 = new NodeType<T>;
+		m_pCurPointer = ptr2;
+		ptr2->data = copy.m_pCurPointer->data;
+		ptr1 = copy.m_pCurPointer->next;
+		while (ptr1 != NULL) {
+			ptr2->next = new NodeType<T>;
+			ptr2 = ptr2->next;
+			ptr2->data = ptr1->data;
+			ptr1 = ptr1->next;
+		}
+		ptr2->next = NULL;
+	}
+}
+*/
 // 리스트 비우기
 template <typename T>
 void ArrayList<T>::MakeEmpty()
@@ -157,6 +202,7 @@ void ArrayList<T>::MakeEmpty()
 		m_pList = m_pList->next;
 		delete tempPtr;
 	}
+	
 	m_nLength = 0;
 }
 
@@ -296,6 +342,40 @@ int ArrayList<T>::Get(T& item) {
 
 }
 
+template <typename T>
+T* ArrayList<T>::Get2(T item) {
+	bool moreToSearch, found;
+	NodeType<T>* location;	//변수 선언
+
+	location = m_pList;
+	found = false;
+	moreToSearch = (location != NULL);	//변수 초기화
+
+	while (moreToSearch && !found)	//리스트의 끝이 아니면서 아직 찾지 않았으면 반복한다.
+	{
+		if (item == location->data)
+		{
+			found = true;
+			return &(location->data);
+			//item = location->data;
+		}	//일치하는 항목을 찾았을 때 found의 값을 변경해주고 item에 해당 항목을 복사해준다.
+		else
+		{
+			location = location->next;
+			moreToSearch = (location != NULL);
+		}	//찾지 못했을 때 다음 항목으로 location을 옮기고 그 값이 NULL이면 리스트의 끝이므로 moreToSearch의 값을 변경해준다.
+	}
+	if (found == false) {
+		cout << "해당 데이터 찾지 못하였습니다" << endl;
+		return NULL;
+	}
+	//if (found)
+	//	return 1;
+	//else
+	//	return 0;	//찾으면 1, 그렇지 못하면 0을 리턴한다.
+
+}
+
 // 매개변수인 item의 primary key 정보로 리스트에 있는 레코드들과 비교 후 일치한다면 그 레코드 삭제
 template <typename T>
 int ArrayList<T>::Delete(T item) {
@@ -399,18 +479,8 @@ int ArrayList<T>::GetByPrimaryKey(T item) {
 			item.operator-();						//operator- == item.DisplayRecordOnScreen
 		}
 		GetNextItem(dummy); // 이렇게하면 안됨! 
-	}
-	return 1;
-	/*for (int i = 0; i < m_nLength + 1; i++) {	
-		str = m_Array[i].GetName();
-		if (-1 != str.find(tmp.GetName())) { // 레코드들의 이름에 primary key가 해당하는지 확인
-			item = m_Array[i]; // item에 해당 레코드 복사
-			item.DisplayRecordOnScreen(); // 해당 레코드 출력
-		}
-
 	}*/
 }
 
 
-
-#endif	// _UNSORTEDLIST_H
+#endif

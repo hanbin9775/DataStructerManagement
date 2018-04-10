@@ -27,6 +27,9 @@
     <ClCompile Include="ConferenceType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="sessionType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">

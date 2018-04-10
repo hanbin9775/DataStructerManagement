@@ -1,12 +1,7 @@
 #ifndef _CONFERENCETYPE_H
 #define _CONFERENCETYPE_H
 
-#include <iostream>
-#include <fstream>
-#include <string>
 #include "sessionType.h"
-#include "ArrayList.h"
-using namespace std;
 
 
 /**
@@ -18,7 +13,7 @@ enum RelationType {LESS, GREATER, EQUAL};
 /**
 *	학술대회 명, 시작 년월일, 개최 횟수, 개최 기관의 정보를 가지고 있는 아이템 정보 클래스
 *	@author 김한빈
-*	@date   2018-03-29
+*	@date   2018-04-10
 */
 class ConferenceType
 {
@@ -39,6 +34,7 @@ public:
 	*	소멸자
 	*/
 	~ConferenceType()	{}
+
 
 	/**
 	*	@brief	학술대회 명 가져오기
@@ -126,6 +122,19 @@ public:
 	string GetISBN()
 	{
 		return m_sISBN;
+	}
+
+	/**
+	*	@brief	SessionList 가져오기
+	*	@pre	SessionList 값이 설정되어있어야함
+	*	@post	none.
+	*	@return	SessionList 값
+	*/
+	ArrayList<sessionType>* GetsessionList()
+	{
+		ArrayList<sessionType> *sess = new ArrayList<sessionType>();
+		sess = &(this->sessionList);
+		return sess;
 	}
 
 	/**
@@ -376,34 +385,32 @@ public:
 	RelationType CompareByName(const ConferenceType &data);
 
 	/**
-	*	@brief	Compare two item types by item id.
-	*	@pre	two item types should be initialized.
-	*	@param	data	target item for comparing.
-	*	@return	return 1 if this.id > data.id, 0 if not.
+	*	@brief	2개의 item id 로 비교
+	*	@pre	2개의 item들은 값이 설정 되어있어야함.
+	*	@param	item	비교할 아이템
+	*	@return	return 1 만약 this.id > data.id, 아니라면 0
 	*/
 	bool operator>(ConferenceType item);
 
 	/**
-	*	@brief	Compare two item types by item id.
-	*	@pre	two item types should be initialized.
-	*	@param	data	target item for comparing.
-	*	@return	return 1 if this.id == data.id, 0 if not.
+	*	@brief	2개의 item id 로 비교
+	*	@pre	2개의 item들은 값이 설정 되어있어야함.
+	*	@param	item	비교할 아이템
+	*	@return	return 1 만약 this.id == data.id, 아니라면 0
 	*/
 	bool operator==(ConferenceType item);
 
 	/**
-	*	@brief	Compare two item types by item id.
-	*	@pre	two item types should be initialized.
-	*	@param	data	target item for comparing.
-	*	@return	return 1 if this.id == data.id, 0 if not.
+	*	@brief	해당 item의 id 반환
+	*	@pre	해당 item의 id는 값이 설정 되어있어야함
+	*	@return	해당 item의 id 반환
 	*/
 	string operator+();
 
 	/**
-	*	@brief	Compare two item types by item id.
-	*	@pre	two item types should be initialized.
-	*	@param	data	target item for comparing.
-	*	@return	return 1 if this.id == data.id, 0 if not.
+	*	@brief	해당 item의 레코드 출력
+	*	@pre	해당 item의 레코드는 값이 설정되어있어야함
+	*	@return	해당 아이템의 레코드 출력
 	*/
 	void operator-();
 

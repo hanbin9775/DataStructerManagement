@@ -23,19 +23,26 @@ void Application::Run()
 			RetrieveByName();
 			break;
 		case 5:		// 모든 학술대회의 논문 중에서 키워드가 포함된 논문출력
-			//RetrievePaperByName();
+			RetrievePaperByName();
 			break;
-		case 7:		// 모든 학술대회의 요약된 정보를 화면 출력
+		case 6:		// 해당하는 학술대회 찾아 세션 추가
+			RunSession();
+			break;
+			break;
+		case 7:		// 학술대회 약자를 화면에 출력하고, 특정 학술대회 번호를 입력. 입력된 학술대회의 모든 정보 출력
+			GetConferenceInfo();
+			break;
+		case 8:		// 모든 학술대회의 정보(약자 제외)를 화면 출력.
 			DisplayAllConferences();
 			break;
-		case 8:		// 파일에서 리스트 데이터 읽어오기
+		case 9:		// 파일에서 리스트 데이터 읽어오기
 			ReadDataFromFile();
 			break;
-		case 9:		// 리스트 데이터 파일에 저장하기
+		case 10:		// 리스트 데이터 파일에 저장하기
 			WriteDataToFile();
 			break;
 		case 0:     // 프로그램 종료
-			return;
+			exit(0);
 		default:
 			cout << "\tIllegal selection...\n";
 			break;
@@ -43,6 +50,87 @@ void Application::Run()
 	}
 }
 
+// 프로그램 드라이버
+void Application::RunSession()
+{
+	ConferenceType dummy;
+	cout << "\tSession을 추가할 학술대회명을 정확히 입력해주세요\n";
+	dummy.SetNameFromKB();
+
+	ConferenceType* item = m_List.Get2(dummy);				// 추가할 학술대회로 접근. (item으로 가리키게 함)
+	if (item == NULL) {
+		return;
+	}
+
+	while (1)
+	{
+		m_Commands = GetCommandSession();
+
+		switch (m_Commands)
+		{
+		case 1:		// 레코드를 리스트에 추가
+			AddSession(item);
+			break;
+		case 2:		// 리스트에서 해당 레코드 삭제
+			DeleteSession(item);
+			break;
+		case 3:		// 리스트에서 해당 아이템 갱신
+			ReplaceSession(item);
+			break;
+		case 4:		// 학술대회의 세션 이름으로 검색하여 화면 출력
+			RetrieveBySessionName(item);
+			break;
+		case 5:		// 모든 학술대회의 논문 중에서 키워드가 포함된 논문출력
+			RunPaper(item);
+			break;
+		case 0:     // 프로그램 종료
+			Run();
+			break;
+		default:
+			cout << "\tIllegal selection...\n";
+			break;
+		}
+	}
+}
+
+// 프로그램 드라이버
+void Application::RunPaper(ConferenceType* item)
+{
+	cout << "\tPaper를 추가할 Session 이름을 정확히 입력해주세요\n";
+	sessionType dummys;
+	dummys.SetSessionNameFromKB();
+	sessionType* items = item->GetsessionList()->Get2(dummys);
+	if (items == NULL) {
+		return;
+	}
+
+	while (1)
+	{
+		m_Commandp = GetCommandPaper();
+
+		switch (m_Commandp)
+		{
+		case 1:		// 레코드를 리스트에 추가
+					AddPaper(items);
+			break;
+		case 2:		// 리스트에서 해당 레코드 삭제
+					DeletePaper(items);
+			break;
+		case 3:		// 리스트에서 해당 아이템 갱신
+					ReplacePaper(items);
+			break;
+		case 4:		// 학술대회의 세션 이름으로 검색하여 화면 출력
+					RetrieveByPaperName(items);
+			break;
+		case 0:     // 프로그램 종료
+			Run();
+			break;
+		default:
+			cout << "\tIllegal selection...\n";
+			break;
+		}
+	}
+}
 
 // 화면에 커맨드 띄우고 키보드로 입력받음
 int Application::GetCommand()
@@ -54,11 +142,53 @@ int Application::GetCommand()
 	cout << "\t   2 : Delete item" << endl;
 	cout << "\t   3 : Replace item" << endl;
 	cout << "\t   4 : Search by name" << endl;
-	cout << "\t   5 : Get Conference Info" << endl;
-	cout << "\t   6 : Display Conference summary" << endl;
-	cout << "\t   7 : Get from file" << endl; 
-	cout << "\t   8 : Put to file " << endl; 
+	cout << "\t   5 : Search Paper by Name" << endl;
+	cout << "\t   6 : Manage Session" << endl;
+	cout << "\t   7 : Get Conference Info" << endl;
+	cout << "\t   8 : Display Conference summary" << endl;
+	cout << "\t   9 : Get from file" << endl; 
+	cout << "\t   10 : Put to file " << endl; 
 	cout << "\t   0 : Quit" << endl; 
+
+	cout << endl << "\t Choose a Command--> ";
+	cin >> command;
+	cout << endl;
+
+	return command;
+}
+
+// 화면에 커맨드 띄우고 키보드로 입력받음
+int Application::GetCommandSession()
+{
+	
+	int command;
+	cout << endl << endl;
+	cout << "\t---ID -- Command ----- " << endl;
+	cout << "\t   1 : Add session" << endl;
+	cout << "\t   2 : Delete session" << endl;
+	cout << "\t   3 : Replace session" << endl;
+	cout << "\t   4 : Search by name" << endl;
+	cout << "\t   5 : Manage paper" << endl;
+	cout << "\t   0 : Go Back to Conference Manage" << endl;
+
+	cout << endl << "\t Choose a Command--> ";
+	cin >> command;
+	cout << endl;
+
+	return command;
+}
+
+// 화면에 커맨드 띄우고 키보드로 입력받음
+int Application::GetCommandPaper()
+{
+	int command;
+	cout << endl << endl;
+	cout << "\t---ID -- Command ----- " << endl;
+	cout << "\t   1 : Add paper" << endl;
+	cout << "\t   2 : Delete paper" << endl;
+	cout << "\t   3 : Replace paper" << endl;
+	cout << "\t   4 : Search by name" << endl;
+	cout << "\t   0 : Go Back to Conference Manage" << endl;
 
 	cout << endl << "\t Choose a Command--> ";
 	cin >> command;
@@ -76,7 +206,6 @@ int Application::AddConference()
 
 	item.SetRecordFromKB();
 	m_List.Add(item);
-
 	// 현재 list 출력
 
 	cout << endl << "\t<<현재 리스트 현황>>" << endl;
@@ -85,8 +214,34 @@ int Application::AddConference()
 	return 1;
 }
 
+// 새로운 레코드를 리스트에 추가
+int Application::AddSession(ConferenceType* item)
+{
 
-// 모든 학술대회의 요약돈 정보를 화면 출력
+	sessionType sess;				
+	sess.SetSessionNameFromKB();
+	ArrayList<sessionType> *session = item->GetsessionList();
+	session->Add(sess); // 해당 학술대회에 들어가 session add
+	
+	cout << endl << "\t<<"<<item->GetName()<<"의 세션 현황>>" << endl;
+	DisplayAllSessions(item);
+
+	return 1;
+}
+
+int Application::AddPaper(sessionType* items)
+{
+	paperType pp;
+	pp.SetPaperFromKB();
+	ArrayList<paperType> *paper = items->GetpaperList();
+	paper->Add(pp);
+
+	cout << endl << "\t<<세션" << items->GetsessionName() << "의 논문 현황>>" << endl;
+	DisplayAllPapers(items);
+	return 1;
+}
+
+// 해당 학술대회의 세션 리스트 모두 출력
 void Application::DisplayAllConferences()
 {
 	ConferenceType data;
@@ -103,6 +258,35 @@ void Application::DisplayAllConferences()
 	}
 }
 
+// 해당 학술대회의 모든 세션들 화면 출력
+void Application::DisplayAllSessions(ConferenceType* targetconf)
+{
+	sessionType data;
+	targetconf->GetsessionList()->ResetList();	// 리스트 초기화
+	// list의 모든 데이터를 화면에 출력
+	//cout << targetconf.GetsessionList()->GetLength();
+	for (int i = 0; i < targetconf->GetsessionList()->GetLength(); i++)
+	{
+		targetconf->GetsessionList()->GetNextItem(data);
+		data.DisplaySessionNameOnScreen();
+		cout << "\n\t\t|\n\n";
+	}
+}
+
+// 해당 세션의 모든 논문들 화면 출력
+void Application::DisplayAllPapers(sessionType* targetsess)
+{
+	paperType data;
+	targetsess->GetpaperList()->ResetList();	// 리스트 초기화
+												// list의 모든 데이터를 화면에 출력
+												//cout << targetconf.GetsessionList()->GetLength();
+	for (int i = 0; i < targetsess->GetpaperList()->GetLength(); i++)
+	{
+		targetsess->GetpaperList()->GetNextItem(data);
+		data.DisplayPaperRecordOnScreen();
+		cout << "\n\t\t|\n\n";
+	}
+}
 
 // 파일 디스크립터를 통해 입력파일로 파일 열기
 int Application::OpenInFile(char *fileName)
@@ -208,6 +392,36 @@ int Application::DeleteConference() {
 	return 1;
 }
 
+//세션을 리스트에서 삭제
+int Application::DeleteSession(ConferenceType* item) {
+
+	sessionType sess;	// 삭제할 세션의 이름을 담을 object
+	cout << "\t   삭제하고 싶은 이름을 입력하세요" << endl;
+	sess.SetSessionNameFromKB();
+	ArrayList<sessionType> *session = item->GetsessionList();
+	session->Delete(sess);
+
+	cout << endl << "\t<<" << item->GetName() << "의 세션 현황>>" << endl;
+	DisplayAllSessions(item);
+
+	return 1;
+}
+
+//논문을 리스트에서 삭제
+int Application::DeletePaper(sessionType* items) {
+
+	paperType pp;	// 삭제할 논문의 이름을 담을 object
+	cout << "\t   삭제하고 싶은 이름을 입력하세요" << endl;
+	pp.SetpaperTitleFromKB();
+	ArrayList<paperType> *paper = items->GetpaperList();
+	paper->Delete(pp);
+
+	cout << endl << "\t<<" << items->GetsessionName() << "의 논문 현황>>" << endl;
+	DisplayAllPapers(items);
+
+	return 1;
+}
+
 //학술대회를 리스트에서 갱신
 int Application::ReplaceConference() {
 	if (m_List.IsEmpty()) {
@@ -230,6 +444,44 @@ int Application::ReplaceConference() {
 	return 1;
 }
 
+//session을 리스트에서 갱신
+int Application::ReplaceSession(ConferenceType* item) {
+
+	sessionType items;
+	cout << "\t갱신하고 싶은 session 이름을 입력하세요" << endl;
+	items.SetSessionNameFromKB(); // 어딜 바꿀 것인가
+	sessionType* wheretoReplace = item->GetsessionList()->Get2(items); // 바꾸는 곳의 위치가리키기
+	cout << "\t갱신할 session 이름을 입력하세요" << endl;
+	sessionType whattoReplace;   // 무엇으로 바꿀 것인가
+	whattoReplace.SetSessionNameFromKB();
+	
+	wheretoReplace->SetsessionName(whattoReplace.GetsessionName());
+
+	//item->GetsessionList()->Replace(items); 
+
+	cout << endl << "\t<<" << item->GetName() << "의 세션 현황>>" << endl;
+	DisplayAllSessions(item);
+
+	return 1;
+}
+
+//session을 리스트에서 갱신
+int Application::ReplacePaper(sessionType* item) {
+
+	paperType itemp;
+	cout << "\t갱신하고 싶은 논문 이름을 입력하세요" << endl;
+	itemp.SetpaperTitleFromKB(); // 어딜 바꿀 것인가
+	itemp.SetauthorFromKB();     // 갱신할 하위 값들
+	itemp.SetpageNumFromKB();
+	
+	item->GetpaperList()->Replace(itemp);			//갱신하기
+	
+	cout << endl << "\t<<" << item->GetsessionName() << "의 논문 현황>>" << endl;
+	DisplayAllPapers(item);
+
+	return 1;
+}
+
 //학술대회를 학술대회 이름으로 검색하여 화면 출력
 int Application::RetrieveByName() {
 	if (m_List.IsEmpty()) {
@@ -243,6 +495,76 @@ int Application::RetrieveByName() {
 	
 	m_List.GetByPrimaryKey(item);
 	
+	return 1;
+}
+
+//학술대회를 학술대회 이름으로 검색하여 화면 출력
+int Application::RetrieveBySessionName(ConferenceType* item) {
+
+
+	sessionType sess;
+	cout << "\t검색하고 싶은 Session Name을 입력하세요" << endl;
+	sess.SetSessionNameFromKB();
+	item->GetsessionList()->GetByPrimaryKey(sess);
+
+	return 1;
+}
+
+//학술대회를 학술대회 이름으로 검색하여 화면 출력
+int Application::RetrieveByPaperName(sessionType* item) {
+
+
+	paperType pp;
+	cout << "\t검색하고 싶은 논문 이름을 입력하세요" << endl;
+	pp.SetpaperTitleFromKB();
+	item->GetpaperList()->GetByPrimaryKey(pp);
+
+	return 1;
+}
+
+/*
+// 새로운 레코드를 리스트에 추가
+int Application::AddSession(ConferenceType* item)
+{
+
+	sessionType sess;
+	sess.SetSessionNameFromKB();
+	ArrayList<sessionType> *session = item->GetsessionList();
+	session->Add(sess); // 해당 학술대회에 들어가 session add
+
+	cout << endl << "\t<<" << item->GetName() << "의 세션 현황>>" << endl;
+	DisplayAllSessions(item);
+
+	return 1;
+}
+*/
+//학술대회 세션의 눈문 중 키워드가 포함된 논문 출력
+int Application::RetrievePaperByName() {
+	if (m_List.IsEmpty()) {
+		cout << "\t   List is Empty" << endl;
+		return 0;
+	}
+
+	paperType item;	
+	cout << "\t검색하고 싶은 논문 이름을 입력하세요" << endl;
+	item.SetpaperTitleFromKB();
+	ConferenceType dummy;
+	m_List.ResetList();
+	sessionType dummys;
+
+	for (int i = 0; i < m_List.GetLength(); i++) {
+		if(i==0)  m_List.GetNextItem(dummy);
+		dummy.GetsessionList()->ResetList();
+		for (int j = 0; j < dummy.GetsessionList()->GetLength(); j++)
+		{
+			if (j == 0) dummy.GetsessionList()->GetNextItem(dummys); 
+			dummy.GetsessionList()->Get2(dummys)->GetpaperList()->GetByPrimaryKey(item);
+			if ((j != dummy.GetsessionList()->GetLength() - 1) && j!=0) dummy.GetsessionList()->GetNextItem(dummys);
+		}
+		if ((i != m_List.GetLength() - 1)&&i!=0) { m_List.GetNextItem(dummy); }
+	}
+	//paperList.GetByPrimaryKeyS(item);
+
 	return 1;
 }
 
@@ -274,7 +596,3 @@ void Application::GetConferenceInfo() {
 	cout << "\n\t<<검색결과>>\n";
 	cout <<num<<" : "<< display.GetAbrv() << " : " << display.GetName() << endl;
 }
-/*
-int RetrievePaperByName() {
-
-}*/
