@@ -1,0 +1,320 @@
+﻿  sessionType.cpp
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(167): error C2065: 'min': 선언되지 않은 식별자입니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(163): note: 클래스 템플릿 멤버 함수 'ArrayList<paperType>::ArrayList(void)'을(를) 컴파일하고 있습니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\sessiontype.h(19): note: 컴파일 중인 함수 템플릿 인스턴스화 'ArrayList<paperType>::ArrayList(void)'에 대한 참조를 확인하십시오.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\sessiontype.h(120): note: 컴파일 중인 클래스 템플릿 인스턴스화 'ArrayList<paperType>'에 대한 참조를 확인하세요.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(171): error C2065: 'max': 선언되지 않은 식별자입니다.
+  main.cpp
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(167): error C2065: 'min': 선언되지 않은 식별자입니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(163): note: 클래스 템플릿 멤버 함수 'ArrayList<paperType>::ArrayList(void)'을(를) 컴파일하고 있습니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\sessiontype.h(19): note: 컴파일 중인 함수 템플릿 인스턴스화 'ArrayList<paperType>::ArrayList(void)'에 대한 참조를 확인하십시오.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\sessiontype.h(120): note: 컴파일 중인 클래스 템플릿 인스턴스화 'ArrayList<paperType>'에 대한 참조를 확인하세요.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(171): error C2065: 'max': 선언되지 않은 식별자입니다.
+  ConferenceType.cpp
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(167): error C2065: 'min': 선언되지 않은 식별자입니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(163): note: 클래스 템플릿 멤버 함수 'ArrayList<paperType>::ArrayList(void)'을(를) 컴파일하고 있습니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\sessiontype.h(19): note: 컴파일 중인 함수 템플릿 인스턴스화 'ArrayList<paperType>::ArrayList(void)'에 대한 참조를 확인하십시오.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\sessiontype.h(120): note: 컴파일 중인 클래스 템플릿 인스턴스화 'ArrayList<paperType>'에 대한 참조를 확인하세요.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(171): error C2065: 'max': 선언되지 않은 식별자입니다.
+  Application.cpp
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(167): error C2065: 'min': 선언되지 않은 식별자입니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(163): note: 클래스 템플릿 멤버 함수 'ArrayList<paperType>::ArrayList(void)'을(를) 컴파일하고 있습니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\sessiontype.h(19): note: 컴파일 중인 함수 템플릿 인스턴스화 'ArrayList<paperType>::ArrayList(void)'에 대한 참조를 확인하십시오.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\sessiontype.h(120): note: 컴파일 중인 클래스 템플릿 인스턴스화 'ArrayList<paperType>'에 대한 참조를 확인하세요.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(171): error C2065: 'max': 선언되지 않은 식별자입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(247): error C2079: 'itor'은(는) 정의되지 않은 class 'DoublyIterator<T>'을(를) 사용합니다.
+          with
+          [
+              T=paperType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(246): note: 클래스 템플릿 멤버 함수 'int ArrayList<paperType>::Add(T)'을(를) 컴파일하고 있습니다.
+          with
+          [
+              T=paperType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\application.cpp(237): note: 컴파일 중인 함수 템플릿 인스턴스화 'int ArrayList<paperType>::Add(T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=paperType
+          ]
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(247): error C2440: '초기화 중': 'ArrayList<paperType>'에서 'int'(으)로 변환할 수 없습니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(247): note: 이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(248): error C2228: '.Next' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(248): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(265): error C2228: '.m_pCurPointer' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(265): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(265): error C2227: '->data' 왼쪽은 클래스/구조체/공용 구조체/제네릭 형식을 가리켜야 합니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(269): error C2228: '.m_pCurPointer' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(269): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(269): error C2227: '->prev' 왼쪽은 클래스/구조체/공용 구조체/제네릭 형식을 가리켜야 합니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(270): error C2228: '.m_pCurPointer' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(270): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(271): error C2228: '.m_pCurPointer' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(271): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(271): error C2227: '->prev' 왼쪽은 클래스/구조체/공용 구조체/제네릭 형식을 가리켜야 합니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(271): error C2227: '->next' 왼쪽은 클래스/구조체/공용 구조체/제네릭 형식을 가리켜야 합니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(272): error C2228: '.m_pCurPointer' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(272): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(272): error C2227: '->prev' 왼쪽은 클래스/구조체/공용 구조체/제네릭 형식을 가리켜야 합니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(276): error C2228: '.m_pCurPointer' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(276): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(276): error C2227: '->data' 왼쪽은 클래스/구조체/공용 구조체/제네릭 형식을 가리켜야 합니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(279): error C2228: '.Next' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(279): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(289): error C2065: 'm_pCurPointer': 선언되지 않은 식별자입니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(287): note: 클래스 템플릿 멤버 함수 'void ArrayList<paperType>::ResetList(void)'을(를) 컴파일하고 있습니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\application.cpp(280): note: 컴파일 중인 함수 템플릿 인스턴스화 'void ArrayList<paperType>::ResetList(void)'에 대한 참조를 확인하십시오.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(298): error C2065: 'm_pCurPointer': 선언되지 않은 식별자입니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(296): note: 클래스 템플릿 멤버 함수 'void ArrayList<paperType>::GetNextItem(T &)'을(를) 컴파일하고 있습니다.
+          with
+          [
+              T=paperType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\application.cpp(285): note: 컴파일 중인 함수 템플릿 인스턴스화 'void ArrayList<paperType>::GetNextItem(T &)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=paperType
+          ]
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(300): error C2065: 'm_pCurPointer': 선언되지 않은 식별자입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(300): error C2065: 'm_pList': 선언되지 않은 식별자입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(304): error C2065: 'm_pCurPointer': 선언되지 않은 식별자입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(304): error C2227: '->next' 왼쪽은 클래스/구조체/공용 구조체/제네릭 형식을 가리켜야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(304): note: 'unknown-type' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(307): error C2065: 'm_pCurPointer': 선언되지 않은 식별자입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(307): error C2227: '->data' 왼쪽은 클래스/구조체/공용 구조체/제네릭 형식을 가리켜야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(307): note: 'unknown-type' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(352): error C2079: 'itor'은(는) 정의되지 않은 class 'DoublyIterator<T>'을(를) 사용합니다.
+          with
+          [
+              T=paperType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(351): note: 클래스 템플릿 멤버 함수 'int ArrayList<paperType>::Delete(T)'을(를) 컴파일하고 있습니다.
+          with
+          [
+              T=paperType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\application.cpp(417): note: 컴파일 중인 함수 템플릿 인스턴스화 'int ArrayList<paperType>::Delete(T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=paperType
+          ]
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(352): error C2440: '초기화 중': 'ArrayList<paperType>'에서 'int'(으)로 변환할 수 없습니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(352): note: 이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(353): error C2228: '.Next' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(353): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(355): error C2228: '.m_pCurPointer' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(355): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(357): error C2228: '.m_pCurPointer' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(357): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(357): error C2227: '->data' 왼쪽은 클래스/구조체/공용 구조체/제네릭 형식을 가리켜야 합니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(360): error C2228: '.m_pCurPointer' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(360): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(361): error C2228: '.Next' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(361): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(362): error C2228: '.m_pCurPointer' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(362): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(363): error C2228: '.m_pCurPointer' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(363): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(363): error C2227: '->prev' 왼쪽은 클래스/구조체/공용 구조체/제네릭 형식을 가리켜야 합니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(365): error C2561: 'ArrayList<paperType>::Delete': 함수는 값을 반환해야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(351): note: 'ArrayList<paperType>::Delete' 선언을 참조하십시오.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(368): error C2228: '.Next' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(368): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(371): error C2561: 'ArrayList<paperType>::Delete': 함수는 값을 반환해야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(351): note: 'ArrayList<paperType>::Delete' 선언을 참조하십시오.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(377): error C2079: 'itor'은(는) 정의되지 않은 class 'DoublyIterator<T>'을(를) 사용합니다.
+          with
+          [
+              T=paperType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(376): note: 클래스 템플릿 멤버 함수 'int ArrayList<paperType>::Replace(T)'을(를) 컴파일하고 있습니다.
+          with
+          [
+              T=paperType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\application.cpp(480): note: 컴파일 중인 함수 템플릿 인스턴스화 'int ArrayList<paperType>::Replace(T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=paperType
+          ]
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(377): error C2440: '초기화 중': 'ArrayList<paperType>'에서 'int'(으)로 변환할 수 없습니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(377): note: 이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(378): error C2228: '.Next' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(378): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(380): error C2228: '.m_pCurPointer' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(380): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(382): error C2228: '.m_pCurPointer' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(382): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(382): error C2227: '->data' 왼쪽은 클래스/구조체/공용 구조체/제네릭 형식을 가리켜야 합니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(384): error C2228: '.m_pCurPointer' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(384): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(384): error C2227: '->data' 왼쪽은 클래스/구조체/공용 구조체/제네릭 형식을 가리켜야 합니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(385): error C2561: 'ArrayList<paperType>::Replace': 함수는 값을 반환해야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(376): note: 'ArrayList<paperType>::Replace' 선언을 참조하십시오.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(388): error C2228: '.Next' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(388): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(391): error C2561: 'ArrayList<paperType>::Replace': 함수는 값을 반환해야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(376): note: 'ArrayList<paperType>::Replace' 선언을 참조하십시오.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(409): error C2065: 'm_pCurPointer': 선언되지 않은 식별자입니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(398): note: 클래스 템플릿 멤버 함수 'int ArrayList<paperType>::GetByPrimaryKey(T)'을(를) 컴파일하고 있습니다.
+          with
+          [
+              T=paperType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\application.cpp(523): note: 컴파일 중인 함수 템플릿 인스턴스화 'int ArrayList<paperType>::GetByPrimaryKey(T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=paperType
+          ]
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(409): error C2065: 'm_pList': 선언되지 않은 식별자입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(413): error C2065: 'm_pCurPointer': 선언되지 않은 식별자입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(413): error C2227: '->data' 왼쪽은 클래스/구조체/공용 구조체/제네릭 형식을 가리켜야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(413): note: 'unknown-type' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(413): error C2228: '.+' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(415): error C2065: 'm_pCurPointer': 선언되지 않은 식별자입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(415): error C2227: '->data' 왼쪽은 클래스/구조체/공용 구조체/제네릭 형식을 가리켜야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(415): note: 'unknown-type' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(247): error C2079: 'itor'은(는) 정의되지 않은 class 'DoublyIterator<T>'을(를) 사용합니다.
+          with
+          [
+              T=sessionType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(246): note: 클래스 템플릿 멤버 함수 'int ArrayList<sessionType>::Add(T)'을(를) 컴파일하고 있습니다.
+          with
+          [
+              T=sessionType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\application.cpp(224): note: 컴파일 중인 함수 템플릿 인스턴스화 'int ArrayList<sessionType>::Add(T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=sessionType
+          ]
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(247): error C2440: '초기화 중': 'ArrayList<sessionType>'에서 'int'(으)로 변환할 수 없습니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(247): note: 이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(332): error C2079: 'itor'은(는) 정의되지 않은 class 'DoublyIterator<T>'을(를) 사용합니다.
+          with
+          [
+              T=sessionType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(331): note: 클래스 템플릿 멤버 함수 'sessionType *ArrayList<sessionType>::Get2(T)'을(를) 컴파일하고 있습니다.
+          with
+          [
+              T=sessionType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\application.cpp(102): note: 컴파일 중인 함수 템플릿 인스턴스화 'sessionType *ArrayList<sessionType>::Get2(T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=sessionType
+          ]
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(332): error C2440: '초기화 중': 'ArrayList<sessionType>'에서 'int'(으)로 변환할 수 없습니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(332): note: 이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(333): error C2228: '.Next' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(333): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(335): error C2228: '.m_pCurPointer' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(335): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(337): error C2228: '.m_pCurPointer' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(337): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(337): error C2227: '->data' 왼쪽은 클래스/구조체/공용 구조체/제네릭 형식을 가리켜야 합니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(339): error C2228: '.m_pCurPointer' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(339): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(339): error C2227: '->data' 왼쪽은 클래스/구조체/공용 구조체/제네릭 형식을 가리켜야 합니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(342): error C2228: '.Next' 왼쪽에는 클래스/구조체/공용 구조체가 있어야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(342): note: 'int' 형식입니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(352): error C2079: 'itor'은(는) 정의되지 않은 class 'DoublyIterator<T>'을(를) 사용합니다.
+          with
+          [
+              T=sessionType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(351): note: 클래스 템플릿 멤버 함수 'int ArrayList<sessionType>::Delete(T)'을(를) 컴파일하고 있습니다.
+          with
+          [
+              T=sessionType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\application.cpp(402): note: 컴파일 중인 함수 템플릿 인스턴스화 'int ArrayList<sessionType>::Delete(T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=sessionType
+          ]
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(352): error C2440: '초기화 중': 'ArrayList<sessionType>'에서 'int'(으)로 변환할 수 없습니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(352): note: 이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(365): error C2561: 'ArrayList<sessionType>::Delete': 함수는 값을 반환해야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(351): note: 'ArrayList<sessionType>::Delete' 선언을 참조하십시오.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(371): error C2561: 'ArrayList<sessionType>::Delete': 함수는 값을 반환해야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(351): note: 'ArrayList<sessionType>::Delete' 선언을 참조하십시오.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(247): error C2079: 'itor'은(는) 정의되지 않은 class 'DoublyIterator<T>'을(를) 사용합니다.
+          with
+          [
+              T=ConferenceType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(246): note: 클래스 템플릿 멤버 함수 'int ArrayList<ConferenceType>::Add(T)'을(를) 컴파일하고 있습니다.
+          with
+          [
+              T=ConferenceType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\application.cpp(208): note: 컴파일 중인 함수 템플릿 인스턴스화 'int ArrayList<ConferenceType>::Add(T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=ConferenceType
+          ]
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(247): error C2440: '초기화 중': 'ArrayList<ConferenceType>'에서 'int'(으)로 변환할 수 없습니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(247): note: 이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(332): error C2079: 'itor'은(는) 정의되지 않은 class 'DoublyIterator<T>'을(를) 사용합니다.
+          with
+          [
+              T=ConferenceType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(331): note: 클래스 템플릿 멤버 함수 'ConferenceType *ArrayList<ConferenceType>::Get2(T)'을(를) 컴파일하고 있습니다.
+          with
+          [
+              T=ConferenceType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\application.cpp(60): note: 컴파일 중인 함수 템플릿 인스턴스화 'ConferenceType *ArrayList<ConferenceType>::Get2(T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=ConferenceType
+          ]
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(332): error C2440: '초기화 중': 'ArrayList<ConferenceType>'에서 'int'(으)로 변환할 수 없습니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(332): note: 이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(352): error C2079: 'itor'은(는) 정의되지 않은 class 'DoublyIterator<T>'을(를) 사용합니다.
+          with
+          [
+              T=ConferenceType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(351): note: 클래스 템플릿 멤버 함수 'int ArrayList<ConferenceType>::Delete(T)'을(를) 컴파일하고 있습니다.
+          with
+          [
+              T=ConferenceType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\application.cpp(387): note: 컴파일 중인 함수 템플릿 인스턴스화 'int ArrayList<ConferenceType>::Delete(T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=ConferenceType
+          ]
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(352): error C2440: '초기화 중': 'ArrayList<ConferenceType>'에서 'int'(으)로 변환할 수 없습니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(352): note: 이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(365): error C2561: 'ArrayList<ConferenceType>::Delete': 함수는 값을 반환해야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(351): note: 'ArrayList<ConferenceType>::Delete' 선언을 참조하십시오.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(371): error C2561: 'ArrayList<ConferenceType>::Delete': 함수는 값을 반환해야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(351): note: 'ArrayList<ConferenceType>::Delete' 선언을 참조하십시오.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(377): error C2079: 'itor'은(는) 정의되지 않은 class 'DoublyIterator<T>'을(를) 사용합니다.
+          with
+          [
+              T=ConferenceType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(376): note: 클래스 템플릿 멤버 함수 'int ArrayList<ConferenceType>::Replace(T)'을(를) 컴파일하고 있습니다.
+          with
+          [
+              T=ConferenceType
+          ]
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\application.cpp(442): note: 컴파일 중인 함수 템플릿 인스턴스화 'int ArrayList<ConferenceType>::Replace(T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=ConferenceType
+          ]
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(377): error C2440: '초기화 중': 'ArrayList<ConferenceType>'에서 'int'(으)로 변환할 수 없습니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(377): note: 이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(385): error C2561: 'ArrayList<ConferenceType>::Replace': 함수는 값을 반환해야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(376): note: 'ArrayList<ConferenceType>::Replace' 선언을 참조하십시오.
+c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(391): error C2561: 'ArrayList<ConferenceType>::Replace': 함수는 값을 반환해야 합니다.
+  c:\users\user\desktop\자료구조\projectmanagement\2015104166_김한빈_lab03\arraylist.h(376): note: 'ArrayList<ConferenceType>::Replace' 선언을 참조하십시오.
+  코드를 생성하고 있습니다...
